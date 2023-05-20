@@ -2,16 +2,16 @@ import marioadrian2 from "./marioadrian2.jpg";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <img
-        className="footer-image"
+        className="column footer-image"
         alt="Mario and Adrian in the resto"
         src={marioadrian2}
       />
 
-      <ul className="nav-footer">
+      <ul className="column column1">
         <li>
-          <a href="#">Home</a>
+          <a href="#"><b>Home</b></a>
         </li>
         <li>
           <a href="#">About</a>
@@ -29,9 +29,9 @@ export default function Footer() {
           <a href="#">Login</a>
         </li>
       </ul>
-      <ul className="contact-footer">
+      <ul className="column column2">
         <li>
-          <a href="#">Contact</a>
+          <a href="#"><b>Contact</b></a>
         </li>
         <li>
           <a href="#">Address</a>
@@ -43,9 +43,9 @@ export default function Footer() {
           <a href="#">Email</a>
         </li>
       </ul>
-      <ul className="social-media-footer">
+      <ul className="column column3">
         <li>
-          <a href="#">Social Media</a>
+          <a href="#"><b>Social Media</b></a>
         </li>
         <li>
           <a href="#">Facebook</a>

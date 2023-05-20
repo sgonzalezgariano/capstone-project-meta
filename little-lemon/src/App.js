@@ -7,8 +7,15 @@ import Footer from "./Footer";
 function App() {
   return (
     <>
-      <Header />
-      <Nav />
+      <header className="header">
+        <Header />
+        <input className="side-menu" type="checkbox" id="side-menu" />
+        <label className="hamb" for="side-menu">
+          <span className="hamb-line"></span>
+        </label>
+        <Nav />
+      </header>
+
       <Main />
       <Footer />
     </>

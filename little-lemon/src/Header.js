@@ -1,12 +1,5 @@
-import logo from "./logo.png"
+import logomobile from "./logomobile.png";
 
 export default function Header() {
-    return (
-      <img
-      className="logo"
-        src={logo}
-        alt="Little Lemon"
-      />
-    )
-  }
-  
+  return <img className="logo" src={logomobile} alt="Little Lemon" />;
+}
