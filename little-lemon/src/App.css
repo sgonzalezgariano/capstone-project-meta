@@ -178,8 +178,8 @@ textarea:focus {
   justify-content: space-between;
 }
 
-.sections h4,
-.comments-content h4 {
+.sections label,
+.comments-content label {
   font-family: var(--karla);
   font-weight: 400;
   margin: 2% 0;
@@ -198,39 +198,8 @@ textarea:focus {
   height: 100px;
 }
 
-/* CREDIT CARD DATA SECTION */
-
-.card-content {
-  background-color: var(--yellow);
-  width: 100%;
-  margin: 0 auto;
-  padding: 5%;
-}
-
-.card-content .card-title {
-  font-size: 14pt;
-}
-
-.card-input {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-input label {
-  font-family: var(--karla);
-  font-weight: 400;
-  margin: 2% 0;
-  font-size: 12pt;
-}
-
 .astrix {
   color: red;
-}
-
-.details {
-  padding-top: 2%;
-  font-size: 11pt;
 }
 
 input[type="submit"] {
@@ -239,6 +208,7 @@ input[type="submit"] {
   margin-top: 20px;
   max-width: 200px;
   font-weight: 600;
+  padding: 10px;
 }
 
 input[type="submit"]:hover {
@@ -276,12 +246,6 @@ input[type="submit"]:hover {
   align-self: center;
 }
 
-@media (min-width: 500px) {
-  .card-input {
-    width: 60%;
-  }
-}
-
 @media (min-width: 768px) {
   .book-content {
     padding: 5% 10%;
@@ -310,12 +274,6 @@ input[type="submit"]:hover {
     display: none;
   }
 
-  .card-content {
-    padding: 5% 10%;
-  }
-  .card-input input {
-    width: 80%;
-  }
   .footer {
     justify-content: space-evenly;
     flex-direction: row;
@@ -335,7 +293,6 @@ input[type="submit"]:hover {
     margin-left: 0;
   }
 
-  
   .book-content h1 {
     font-size: 36pt;
   }
@@ -343,24 +300,9 @@ input[type="submit"]:hover {
     width: 73%;
     margin: 2% auto;
   }
-  .card-input,
-  .card-content .card-title {
-    width: 73%;
-    margin: 2% auto;
-  }
 
-  .card-content .card-title {
-    font-size: 18pt;
-  }
-
-  input[type="datetime-local"] {
-    width: 30%;
-  }
-  .card-input input {
-    width: 60%;
-  }
   #comments {
-    width: 100%;
+    width: 100%!important;
   }
   .comments-content {
     width: 73%;
@@ -378,11 +320,6 @@ input[type="submit"]:hover {
   }
   .logo {
     margin-left: 10px;
-}
-  #comments {
-    width: 90%;
-}
-.card-input input {
-  width: 30%;
-}
+  }
+  
 }
