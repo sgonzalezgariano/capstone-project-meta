@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./Header";
 import Nav from "./Nav";
-import MainReact from "./MainReact";
+import Main from "./Main";
 import Footer from "./Footer";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         </label>
         <Nav />
       </header>
-      <MainReact />
+      <Main/>
       <Footer />
     </>
   );

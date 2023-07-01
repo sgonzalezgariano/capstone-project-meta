@@ -1,37 +1,98 @@
-export default function Main() {
+import { useReducer, useState } from "react";
+import BookingForm from "./BookingForm";
+import { fetchAPI, submitAPI } from "./api";
 
+const Main = () => {
+  /*    const initializeTimes = [
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+  ]; */
 
+  /*   const todaysDate = new Date();
+  const today = todaysDate.getDate();
 
+  const initializeTimes = () => {
+    
+      const response = fetch(
+        "https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"
+      ).then((response) => response.json());
+      response.fetchData(today);
+      console.log(response);
+      const response = fetchAPI(today)
+    return response;
+  }; */
+
+  const today = new Date();
+
+  const [formData, setFormData] = useState({
+    date: today,
+    guests: "1",
+    time: "",
+    occasion: "None",
+    requests: "",
+    fname: "",
+    lname: "",
+    email: "",
+  });
+
+  const submitForm = (formData) => {
+    if (submitAPI(formData)) {
+      console.log(formData);
+      setFormData({
+        date: today,
+        guests: "",
+        time: "",
+        occasion: "None",
+        requests: "",
+        fname: "",
+        lname: "",
+        email: "",
+      });
+    }
+  };
+
+  const initializeTimes = () => {
+    const availableTimes = fetchAPI(today);
+
+    return {
+      selectedTime: null,
+      availableTimes: availableTimes,
+    };
+  };
+
+  const updateTimes = (state, action) => {
+    switch (action.type) {
+      case "SELECT_TIME":
+        return {
+          ...state,
+          selectedTime: action.payload,
+        };
+      case "SELECT_DATE":
+        return {
+          ...state,
+          availableTimes: fetchAPI(action.payload),
+        };
+      default:
+        return state;
+    }
+  };
+
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
   return (
-
-
-
-
-
-    
-    <main className="main-content">
-      <form style={{display: "grid", maxWidth: "200px", gap: "20px"}}>
-        <label for="res-date">Choose date</label>
-        <input type="date" id="res-date" />
-        <label for="res-time">Choose time</label>
-        <select id="res-time ">
-          <option>17:00</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-          <option>21:00</option>
-          <option>22:00</option>
-        </select>
-        <label for="guests">Number of guests</label>
-        <input type="number" placeholder="1" min="1" max="10" id="guests" />
-        <label for="occasion">Occasion</label>
-        <select id="occasion">
-          <option>Birthday</option>
-          <option>Anniversary</option>
-        </select>
-        <input type="submit" value="Make Your reservation" />
-      </form>
-    </main>
+    <BookingForm
+      dispatch={dispatch}
+      initializeTimes={initializeTimes}
+      availableTimes={availableTimes}
+      submitForm={submitForm}
+      formData={formData}
+      setFormData={setFormData}
+    />
   );
-}
+};
+
+export default Main;
